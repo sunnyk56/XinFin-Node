@@ -29,8 +29,9 @@ do
         bootnodes="${bootnodes},$line"
     fi
 done < "$input"
-INSTANCE_IP=$(curl https://checkip.amazonaws.com)
-netstats="${INSTANCE_NAME}:xdc_xinfin_apothem_network_stats@stats.apothem.network:2000"
+#INSTANCE_IP=$(curl https://checkip.amazonaws.com)
+#netstats="${INSTANCE_NAME}:xdc_xinfin_apothem_network_stats@stats.apothem.network:2000"
 
 echo "Starting nodes with $bootnodes ..."
-XDC --ethstats ${netstats} --gcmode=archive --bootnodes ${bootnodes} --syncmode ${NODE_TYPE} --datadir /work/xdcchain-testnet --networkid 51 -port 30304 --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcport 8555 --rpcapi admin,db,eth,debug,miner,net,shh,txpool,personal,web3,XDPoS --rpcvhosts "*" --unlock "${wallet}" --password /work/.pwd --mine --gasprice "1" --targetgaslimit "420000000" --verbosity 3 --ws --wsaddr=0.0.0.0 --wsport 8556 --wsorigins "*" 2>&1 >>/work/xdcchain-testnet/xdc.log | tee --append /work/xdcchain-testnet/xdc.log
+#XDC --ethstats ${netstats} --gcmode=archive --bootnodes ${bootnodes} --syncmode ${NODE_TYPE} --datadir /work/xdcchain-testnet --networkid 665 -port 30303 --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcport 8545 --rpcapi admin,db,eth,debug,miner,net,shh,txpool,personal,web3,XDPoS --rpcvhosts "*" --unlock "${wallet}" --password /work/.pwd --mine --gasprice "1" --targetgaslimit "420000000" --verbosity 3 --ws --wsaddr=0.0.0.0 --wsport 8556 --wsorigins "*" 2>&1 >>/work/xdcchain-testnet/xdc.log | tee --append /work/xdcchain-testnet/xdc.log
+XDC  --bootnodes ${bootnodes} --syncmode ${NODE_TYPE} --datadir /work/xdcchain-testnet --networkid 665 -port 30303 --rpc --rpccorsdomain "*" --rpcaddr 0.0.0.0 --rpcport 8545  --rpcvhosts "*" --unlock "${wallet}" --password /work/.pwd --mine --gasprice "1" --targetgaslimit "420000000" --verbosity 3 --ws --wsaddr=0.0.0.0 --wsport 8556 --wsorigins "*" 2>&1 >>/work/xdcchain-testnet/xdc.log | tee --append /work/xdcchain-testnet/xdc.log
