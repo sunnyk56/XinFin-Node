@@ -2,11 +2,11 @@ version: "3.4"
 
 services:
   xinfinnetwork:
-    image: xinfinorg/xinfinnetwork:1.4.3
+    image: xinfinorg/xinfinnetwork:xdc_apothem_rpc_v1.0.1
     volumes:
       - "./xdcchain-testnet:/work/xdcchain-testnet"
       - "./testnetgenesis.json:/work/testnetgenesis.json"
-      - "./start-node.sh:/work/start-apothem.sh"
+      - "./start-apothem.sh:/work/start-apothem.sh"
       - "./testnetbootnodes.list:/work/testnetbootnodes.list"
       - "./.pwd:/work/.pwd"
       - "/etc/localtime:/etc/localtime:ro"
