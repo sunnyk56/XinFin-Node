@@ -2,7 +2,7 @@ version: "3.4"
 
 services:
   xinfinnetwork:
-    image: xinfinorg/xinfinnetwork:evm_upgrade_apothem
+    image: xinfinorg/xinfinnetwork:1.4.3
     volumes:
       - "./xdcchain-testnet:/work/xdcchain-testnet"
       - "./testnetgenesis.json:/work/testnetgenesis.json"
